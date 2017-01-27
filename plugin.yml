@@ -1,0 +1,17 @@
+name: cEssentials
+main: me.rockey.cessentials.core.CustomEssentials
+version: 1.0
+description: A remade improved version of Essentials.
+authors: [Rockey, Asolus]
+database: false
+commands:
+   gamemode:
+      description: Sets a player's game mode
+      permission: cessentials.gamemode
+      aliases: [gm]
+permissions:
+   cessentials.*:
+     description: Permission to use all commands in cEssentials
+     children:
+       cessentials.gamemode: true
+       cessentials.gamemode.others: true
