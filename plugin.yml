@@ -5,6 +5,8 @@ description: A remade improved version of Essentials.
 authors: [Rockey, Asolus]
 database: false
 commands:
+   god:
+      description: god
    gamemode:
       description: Sets a player's game mode
       permission: cessentials.gamemode
