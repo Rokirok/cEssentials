@@ -16,7 +16,6 @@
 
 package me.rockey.cessentials.commands;
 
-import me.rockey.cessentials.core.CustomEssentials;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -24,25 +23,21 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-
-public class GodCommand implements CommandExecutor {
-
-    private ArrayList<Player> godList = CustomEssentials.god;
+public class FlyCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (cmd.getName().equalsIgnoreCase("god")) {
+            if (cmd.getName().equalsIgnoreCase("fly")) {
                 if (args.length < 1) {
-                    if (p.hasPermission("cessentials.god")) {
-                        if (godList.contains(p)) {
-                            godList.remove(p);
+                    if (p.hasPermission("cessentials.fly")) {
+                        if (p.getAllowFlight() == true) {
+                            p.setAllowFlight(false);
                             p.sendMessage("Message!");
                             return true;
-                        } else if (!(godList.contains(p))) {
-                            godList.add(p);
+                        } else if (p.getAllowFlight() == false) {
+                            p.setAllowFlight(true);
                             p.sendMessage("Message!");
                             return true;
                         }
@@ -50,18 +45,18 @@ public class GodCommand implements CommandExecutor {
                         p.sendMessage(ChatColor.RED + "No permission!");
                     }
                 } else {
-                    if (p.hasPermission("cessentials.god.others")) {
+                    if (p.hasPermission("cessentials.fly.others")) {
                         Player target = Bukkit.getPlayer(args[0]);
                         if (target != null) {
-                            if (godList.contains(target)) {
-                                godList.remove(target);
+                            if (target.getAllowFlight() == true) {
+                                target.setAllowFlight(false);
                                 target.sendMessage("Message!");
-                                p.sendMessage("Message!");
+                                sender.sendMessage("Message!");
                                 return true;
-                            } else if (!(godList.contains(p))) {
-                                godList.add(target);
+                            } else if (target.getAllowFlight() == false) {
+                                target.setAllowFlight(true);
                                 target.sendMessage("Message!");
-                                p.sendMessage("Message!");
+                                sender.sendMessage("Message!");
                                 return true;
                             }
                         } else {
@@ -70,29 +65,6 @@ public class GodCommand implements CommandExecutor {
                     } else {
                         p.sendMessage(ChatColor.RED + "No permission!");
                     }
-                }
-            }
-        } else {
-            if (cmd.getName().equalsIgnoreCase("god")) {
-                if (sender.hasPermission("cessentials.god.others")) {
-                    Player target = Bukkit.getPlayer(args[0]);
-                    if (target != null) {
-                        if (godList.contains(target)) {
-                            godList.remove(target);
-                            target.sendMessage("Message!");
-                            sender.sendMessage("Message!");
-                            return true;
-                        } else if (!(godList.contains(target))) {
-                            godList.add(target);
-                            target.sendMessage("Message!");
-                            sender.sendMessage("Message!");
-                            return true;
-                        }
-                    } else {
-                        sender.sendMessage(ChatColor.RED + "Player not found!");
-                    }
-                } else {
-                    sender.sendMessage(ChatColor.RED + "No permission!");
                 }
             }
         }

@@ -1,20 +1,80 @@
-name: cEssentials
 main: me.rockey.cessentials.core.CustomEssentials
+name: cEssentials
 version: 1.0
 description: A remade improved version of Essentials.
-authors: [Rockey, Asolus]
+author: Rockey
 database: false
 commands:
+   world:
+      description: world
+   clear:
+      description: clear
+   day:
+      description: day
+   feed:
+      description: feed
+   gmc:
+      description: gmc
+   gms:
+      description: gms
+   gma:
+      description: gma
+   gmsp:
+      description: gmsp
+   heal:
+      description: heal
+   night:
+      description: night
+   rain:
+      description: rain
+   storm:
+      description: storm
+   sun:
+      description: sun
+   tp:
+      description: tp
+   tphere:
+      description: tphere
    god:
       description: god
-      permission: cessentials.god
+   list:
+      description: list
+   fly:
+      description: fly
+   invsee:
+      description: invsee
    gamemode:
       description: Sets a player's game mode
-      permission: cessentials.gamemode
       aliases: [gm]
 permissions:
    cessentials.*:
      description: Permission to use all commands in cEssentials
      children:
-       cessentials.gamemode: true
-       cessentials.gamemode.others: true
+       cessentials.gamemode.creative: true
+       cessentials.gamemode.creative.others: true
+       cessentials.gamemode.survival: true
+       cessentials.gamemode.survival.others: true
+       cessentials.gamemode.adventure: true
+       cessentials.gamemode.adventure.others: true
+       cessentials.gamemode.spectator: true
+       cessentials.gamemode.spectator.others: true
+       cessentials.god: true
+       cessentials.god.others: true
+       cessentials.heal: true
+       cessentials.heal.others: true
+       cessentials.invsee: true
+       cessentials.tp: true
+       cessentials.tp.others: true
+       cessentials.tphere: true
+       cessentials.fly: true
+       cessentials.fly.others: true
+       cessentials.feed: true
+       cessentials.feed.others: true
+       cessentials.clear: true
+       cessentials.clear.others: true
+       cessentials.day: true
+       cessentials.sun: true
+       cessentials.storm: true
+       cessentials.rain: true
+       cessentials.night: true
+       cessentials.list: true
