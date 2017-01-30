@@ -39,11 +39,11 @@ public class GodCommand implements CommandExecutor {
                     if (p.hasPermission("cessentials.god")) {
                         if (godList.contains(p)) {
                             godList.remove(p);
-                            p.sendMessage("Message!");
+                            p.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.RED + "disabled");
                             return true;
                         } else if (!(godList.contains(p))) {
                             godList.add(p);
-                            p.sendMessage("Message!");
+                            p.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.GREEN + "enabled");
                             return true;
                         }
                     } else {
@@ -55,13 +55,13 @@ public class GodCommand implements CommandExecutor {
                         if (target != null) {
                             if (godList.contains(target)) {
                                 godList.remove(target);
-                                target.sendMessage("Message!");
-                                p.sendMessage("Message!");
+                                target.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.RED + "disabled");
+                                p.sendMessage(ChatColor.GRAY + "Set god mode " + ChatColor.RED + "disabled " + ChatColor.GRAY + "for " + ChatColor.GREEN + target.getName());
                                 return true;
                             } else if (!(godList.contains(p))) {
                                 godList.add(target);
-                                target.sendMessage("Message!");
-                                p.sendMessage("Message!");
+                                target.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.GREEN + "enabled");
+                                p.sendMessage(ChatColor.GRAY + "Set god mode " + ChatColor.GREEN + "enabled " + ChatColor.GRAY + "for " + ChatColor.GREEN + target.getName());
                                 return true;
                             }
                         } else {
@@ -79,13 +79,13 @@ public class GodCommand implements CommandExecutor {
                     if (target != null) {
                         if (godList.contains(target)) {
                             godList.remove(target);
-                            target.sendMessage("Message!");
-                            sender.sendMessage("Message!");
+                            target.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.RED + "disabled");
+                            sender.sendMessage("Set god mode disabled for "+ target.getName());
                             return true;
                         } else if (!(godList.contains(target))) {
                             godList.add(target);
-                            target.sendMessage("Message!");
-                            sender.sendMessage("Message!");
+                            target.sendMessage(ChatColor.GRAY + "God mode " + ChatColor.GREEN + "enabled");
+                            sender.sendMessage("Set god mode enabled for "+ target.getName());
                             return true;
                         }
                     } else {
